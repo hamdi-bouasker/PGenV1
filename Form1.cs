@@ -17,23 +17,23 @@ namespace PGenV1
         const string SPECIALS = "$%!}?@#)&*{/=+(";
         Random random = new Random();
         public string PasswordGenerator(bool lowerCase, bool upperCase, bool mumberic, bool specialCharacter, int length, int pwdNums)
-            {
-                char[] password = new char[length];
-                string charSet = "";
-                
-                if (lowerCase)
-                    charSet += LOWERCASE;
-                if (upperCase)
-                    charSet += UPPERCASE;
-                if (mumberic)
-                    charSet += DIGITS;
-                if (specialCharacter)
-                    charSet += SPECIALS;
-                for (int i = 0; i < length; i++)
-                    password[i] = charSet[random.Next(charSet.Length - 1)];
-            
-                return string.Join(null, password);
-            }
+        {
+            char[] password = new char[length];
+            string charSet = "";
+
+            if (lowerCase)
+                charSet += LOWERCASE;
+            if (upperCase)
+                charSet += UPPERCASE;
+            if (mumberic)
+                charSet += DIGITS;
+            if (specialCharacter)
+                charSet += SPECIALS;
+            for (int i = 0; i < length; i++)
+                password[i] = charSet[random.Next(charSet.Length - 1)];
+
+            return string.Join(null, password);
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -55,27 +55,27 @@ namespace PGenV1
         }
         private void clearInputs_Click(object sender, EventArgs e)
         {
-            chkLowerCase.Checked=false;
+            chkLowerCase.Checked = false;
             chkUpperCase.Checked = false;
             chkNumeric.Checked = false;
             chkSpecial.Checked = false;
             txtPasswordLength.Clear();
             txtPassword.Clear();
             txtPasswordNum.Clear();
+            MessageBox.Show("All inputs are cleared!");
         }
-            private void copyPassword_Click(object sender, EventArgs e)
+        private void copyPassword_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPassword.Text))
             {
-
-                if (!string.IsNullOrEmpty(txtPassword.Text))
-                {
-                    Clipboard.SetText(txtPassword.Text);
-                    MessageBox.Show("Password Copied!");
-                }
-                else
-                {
-                    MessageBox.Show("There is no password to copy!");
-                }
+                Clipboard.SetText(txtPassword.Text);
+                MessageBox.Show("Password Copied!");
+            }
+            else
+            {
+                MessageBox.Show("There is no password to copy!");
             }
         }
     }
+}
 
