@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PGenV1
@@ -17,7 +10,6 @@ namespace PGenV1
             InitializeComponent();
         }
 
-        
         // I intentionnally put letters and digits in random order to more randomize the result
         const string LOWERCASE = "nbvcxwmlkjhgfdsqpoiuytreza";
         const string UPPERCASE = "AZERTYUIOPQSDFGHJKLMWXCVBN";
@@ -42,14 +34,10 @@ namespace PGenV1
             
                 return string.Join(null, password);
             }
-
-        
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             try
@@ -65,7 +53,6 @@ namespace PGenV1
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void clearInputs_Click(object sender, EventArgs e)
         {
             chkLowerCase.Checked=false;
@@ -75,9 +62,7 @@ namespace PGenV1
             txtPasswordLength.Clear();
             txtPassword.Clear();
             txtPasswordNum.Clear();
-
         }
-
             private void copyPassword_Click(object sender, EventArgs e)
             {
 
@@ -86,12 +71,10 @@ namespace PGenV1
                     Clipboard.SetText(txtPassword.Text);
                     MessageBox.Show("Password Copied!");
                 }
-
                 else
                 {
                     MessageBox.Show("There is no password to copy!");
                 }
-
             }
         }
     }
